@@ -1,0 +1,11 @@
+{
+  "name": "archityper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "archetyper": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,23 @@
+{
+  "layer": 1,
+  "structure": {
+    "directory": [
+      {
+        "name": "src",
+        "directory": [],
+        "file": [
+          {
+            "name": "index.js",
+            "content": "node.empty-function"
+          }
+        ]
+      }
+    ],
+    "file": [
+      {
+        "name": "package.json",
+        "content": "node.package.content"
+      }
+    ]
+  }
+}
