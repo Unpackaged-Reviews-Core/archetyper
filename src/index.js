@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const createDiectory = require("./commands/create-directory");
 const getTemplate = require("./commands/get-template");
 const mergeLayers = require("./commands/merge-layer");
@@ -14,7 +16,7 @@ switch (action) {
     console.log("Usage: archetyper <option> <project-name> <project-type...>");
     break;
   case "create":
-    let srcDirectory = path.join(__dirname, "..");
+    let srcDirectory = process.cwd();
     createDiectory(projectName, srcDirectory);
     console.log("the template types are ", projectTypes);
     const templates = projectTypes.map((projectType) =>
@@ -24,7 +26,6 @@ switch (action) {
       projectName,
       version: "1.0.0",
     });
-    console.log(" the teamplates are ", templates);
 
     break;
   default:

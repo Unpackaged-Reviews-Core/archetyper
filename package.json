@@ -1,11 +1,17 @@
 {
-  "name": "archityper",
-  "version": "1.0.0",
-  "description": "",
+  "name": "archetyper",
+  "version": "0.0.1",
+  "description": "A simple tool to generate boilerplate code and use pre-existing archetypes in a single command",
   "main": "src/index.js",
   "scripts": {
     "archetyper": "node src/index.js"
   },
+  "bin": {
+    "archetyper": "src/index.js"
+  },
+  "files": [
+    "src/"
+  ],
   "author": "",
   "license": "ISC"
 }
