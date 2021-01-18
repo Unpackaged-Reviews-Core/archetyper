@@ -1,2 +1,2 @@
 to run the command use
-`npm run archetyper create my-project node`
+`npx archetyper create my-project node`

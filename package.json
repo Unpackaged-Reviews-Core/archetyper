@@ -1,6 +1,7 @@
 {
   "name": "archetyper",
   "version": "0.0.1",
+  "repository": "https://github.com/Unpackaged-Reviews-Core/archetyper",
   "description": "A simple tool to generate boilerplate code and use pre-existing archetypes in a single command",
   "main": "src/index.js",
   "scripts": {
@@ -13,5 +14,9 @@
     "src/"
   ],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "libnpmsearch": "^3.1.0",
+    "prettier": "^2.2.1"
+  }
 }
