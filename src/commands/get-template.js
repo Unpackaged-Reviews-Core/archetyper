@@ -2,7 +2,7 @@ const nodeTemplate = require("../templates/node.json");
 
 module.exports = function (projectType) {
   switch (projectType) {
-    case "node":
+    case "nodeJs":
       return nodeTemplate;
     default:
       return {};

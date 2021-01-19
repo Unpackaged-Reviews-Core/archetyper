@@ -1,0 +1,27 @@
+{
+  "layer": 2,
+  "structure": {
+    "directory": [
+      {
+        "name": "src",
+        "directory": [],
+        "file": [
+          {
+            "name": "index.js",
+            "content": [
+              "node.dotenv-require.configure"
+            ]
+          }
+        ]
+      }
+    ],
+    "file": [
+      {
+        "name": ".env",
+        "content": [
+          "empty"
+        ]
+      }
+    ]
+  }
+}

@@ -8,6 +8,6 @@ module.exports = {
     return config;
   },
   getAvailableTemplates: function () {
-    return ["node"];
+    return ["nodeJs"];
   },
 };
