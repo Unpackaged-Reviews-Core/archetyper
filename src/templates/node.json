@@ -8,7 +8,9 @@
         "file": [
           {
             "name": "index.js",
-            "content": "node.empty-function"
+            "content": [
+              "node.empty-function"
+            ]
           }
         ]
       }
@@ -16,7 +18,9 @@
     "file": [
       {
         "name": "package.json",
-        "content": "node.package.content"
+        "content": [
+          "node.package.content"
+        ]
       }
     ]
   }

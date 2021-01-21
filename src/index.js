@@ -30,6 +30,7 @@
         {
           projectName,
           version: "1.0.0",
+          dependencies: projectTypes.splice(1),
         }
       );
 

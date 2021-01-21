@@ -8,19 +8,24 @@ module.exports = async function (template, projectPath, data) {
   structure.file.forEach(async (element) => {
     await createFile(projectPath, element, data);
   });
-  structure.directory.forEach(
+  structure.directory.map(
     async (element) => await createDirectory(projectPath, element, data)
   );
 };
 
 async function createFile(folderPath, file, data) {
-  fs.writeFileSync(
-    path.join(folderPath, file.name),
-    await contentGenerators[file.content](data),
-    function (err) {
-      console.error(err);
+  let filePath = path.join(folderPath, file.name);
+  let stream = fs.createWriteStream(filePath, { flags: "a" });
+  for (const elem of file.content) {
+    let code;
+    if (elem === "empty") {
+      code = "";
+    } else {
+      code = await contentGenerators[elem](data);
     }
-  );
+    stream.write(code + "\n");
+  }
+  stream.close();
 }
 
 async function createDirectory(folderPath, folder, data) {

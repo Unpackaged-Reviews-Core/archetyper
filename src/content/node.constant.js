@@ -2,7 +2,7 @@ const npmSearch = require("libnpmsearch");
 const prettier = require("prettier");
 
 const packageContent = async function (data) {
-  const dependency = await buildDependency();
+  const dependency = await buildDependency(data.dependencies);
   return prettier.format(
     `{
     "name": "${data.projectName}",
@@ -20,21 +20,34 @@ const packageContent = async function (data) {
   );
 };
 
-const emptyFunction = function (data) {
+const emptyFunction = async function (data) {
   return `console.log("Hello World!");`;
 };
 
-async function buildDependency(params) {
-  const dotenv = (
-    await npmSearch("dotenv", {
-      limit: 1,
-    })
-  )[0];
+async function buildDependency(dependencies) {
+  const dependency = {};
+  for (const dep of dependencies) {
+    const npmPackage = (
+      await npmSearch(dep, {
+        limit: 1,
+      })
+    )[0];
+    dependency[npmPackage.name] = npmPackage.version;
+  }
 
-  return JSON.stringify({ [dotenv.name]: dotenv.version }, null, 2);
+  return JSON.stringify(dependency);
 }
 
+async function dotEnvConfig(data) {
+  return prettier.format(
+    `
+  const config = require("dotenv").config;
+  config();`,
+    { parser: "babel" }
+  );
+}
 module.exports = {
   "node.package.content": packageContent,
   "node.empty-function": emptyFunction,
+  "node.dotenv-require.configure": dotEnvConfig,
 };
