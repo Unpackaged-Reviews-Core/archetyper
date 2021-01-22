@@ -1,6 +1,6 @@
 {
   "name": "archetyper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "homepage": "https://unpackaged.reviews",
   "repository": "https://github.com/Unpackaged-Reviews-Core/archetyper",
   "description": "A simple tool to generate boilerplate code and use pre-existing archetypes in a single command",
