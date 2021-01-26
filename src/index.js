@@ -18,25 +18,28 @@
       );
       break;
     case "create":
-      let srcDirectory = process.cwd();
-      createDiectory(projectName, srcDirectory);
-      console.log("the template types are ", projectTypes);
       const templates = projectTypes.map((projectType) =>
         getTemplate(projectType)
       );
-      await materializer(
-        mergeLayers(templates),
-        srcDirectory + "/" + projectName,
-        {
-          projectName,
-          version: "1.0.0",
-          dependencies: projectTypes.splice(1),
-        }
-      );
-
+      if (templates[0].layer !== 1) {
+        console.log("Please select a language/framework such as nodeJs");
+      } else {
+        let srcDirectory = process.cwd();
+        createDiectory(projectName, srcDirectory);
+        await materializer(
+          mergeLayers(templates),
+          srcDirectory + "/" + projectName,
+          {
+            projectName,
+            version: "1.0.0",
+            dependencies: projectTypes.slice(1),
+          }
+        );
+        console.log("The templates built are:", projectTypes);
+      }
       break;
     default:
-      console.log("no such options found");
+      console.log("Selected templates are unavailable");
       break;
   }
 })();

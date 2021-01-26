@@ -1,7 +1,3 @@
-const merge = require("lodash").assign;
-const isArray = require("lodash").isArray;
-const isString = require("lodash").isString;
-
 module.exports = function (templates) {
   let finalLayer = {
     structure: {
@@ -11,30 +7,30 @@ module.exports = function (templates) {
   };
 
   templates.forEach((layer) => {
-    let tmp = {
+    let temporaryLayer = {
       structure: mergeDirectory(finalLayer.structure, layer.structure),
     };
-    tmp.structure.file = finalLayer.structure.file;
+    temporaryLayer.structure.file = finalLayer.structure.file;
 
-    tmp.structure.file = mergeFile(
+    temporaryLayer.structure.file = mergeFile(
       finalLayer.structure.file,
       layer.structure.file
     );
-    finalLayer = tmp;
+    finalLayer = temporaryLayer;
   });
   return finalLayer;
 };
 
-function mergeDirectory(directory1, directory2) {
+function mergeDirectory(directoryOne, directoryTwo) {
   let directoryMap = new Map();
-  directory1.directory.forEach((elem) => {
+  directoryOne.directory.forEach((elem) => {
     if (directoryMap.has(elem.name)) {
       directoryMap.get(elem.name).push(elem);
     } else {
       directoryMap.set(elem.name, [elem]);
     }
   });
-  directory2.directory.forEach((elem) => {
+  directoryTwo.directory.forEach((elem) => {
     if (directoryMap.has(elem.name)) {
       directoryMap.get(elem.name).push(elem);
     } else {
@@ -59,16 +55,16 @@ function mergeDirectory(directory1, directory2) {
     directory: finalDirectory,
   };
 }
-function mergeFile(file1, file2) {
+function mergeFile(fileOne, fileTwo) {
   let fileNames = new Map();
-  file1.forEach((elem) => {
+  fileOne.forEach((elem) => {
     if (fileNames.has(elem.name)) {
       fileNames.get(elem.name).push(elem);
     } else {
       fileNames.set(elem.name, [elem]);
     }
   });
-  file2.forEach((elem) => {
+  fileTwo.forEach((elem) => {
     if (fileNames.has(elem.name)) {
       fileNames.get(elem.name).push(elem);
     } else {
