@@ -4,7 +4,6 @@
   const getTemplate = require("./commands/get-template");
   const mergeLayers = require("./commands/merge-layer");
   const materializer = require("./commands/materializer");
-  const path = require("path");
 
   const args = process.argv.slice(2);
   const action = args[0];
