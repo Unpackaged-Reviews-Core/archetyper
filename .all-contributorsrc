@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "KaushikIyer16",
+      "name": "Kaushik N S Iyer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12679519?v=4",
+      "profile": "https://github.com/KaushikIyer16",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "archetyper",
+  "projectOwner": "Unpackaged-Reviews-Core",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
